@@ -44,7 +44,7 @@ for line in sys.stdin:
 if prev_taxi == taxi:
     output()
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-e/
 rm -rf MedallionTripsSamp
@@ -61,7 +61,7 @@ rm -rf MedallionTripsSamp
 cat MedallionTripsSamp.txt
 '''
 
-# Run Code
+# Run Complete Dataset Code
 '''
 cd ~/hw1/task2-e/
 rm -rf MedallionTrips

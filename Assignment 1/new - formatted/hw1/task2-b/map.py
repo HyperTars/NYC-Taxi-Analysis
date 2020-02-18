@@ -16,7 +16,7 @@ for line in sys.stdin:
     if key <= 10.00:
         print '%s\t%s' % (key, 1)
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-b
 rm -rf TripAmountSamp

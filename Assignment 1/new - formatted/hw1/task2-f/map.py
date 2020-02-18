@@ -12,6 +12,7 @@ for line in sys.stdin:
     # print
     print '%s\t%s' % (lic, med)
 
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-f/
 rm -rf UniqueTaxisSamp

@@ -38,7 +38,7 @@ for cnt in count:
 
 print '%s\t%s' % ('total', total)
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-c/
 rm -rf NumberPassengersSamp
@@ -55,7 +55,7 @@ rm -rf NumberPassengersSamp
 cat NumberPassengersSamp.txt
 '''
 
-# Run Code
+# Run Complete Dataset Code
 '''
 cd ~/hw1/task2-c/
 rm -rf NumberPassengers
