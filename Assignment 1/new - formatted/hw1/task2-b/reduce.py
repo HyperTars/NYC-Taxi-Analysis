@@ -21,33 +21,34 @@ print count
 
 # Test Code
 '''
-cd ~/hw1/Task2-b/
-rm -rf TripAmountSamp.out
-hfs -rm -r TripAmountSamp.out
+cd ~/hw1/task2-b/
+rm -rf TripAmountSamp
+hfs -rm -r TripAmountSamp
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-b/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-b/ \
+-mapper task2-b/map.py \
+-reducer task2-b/reduce.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/TripAmountSamp.out
-hfs -get TripAmountSamp.out
-hfs -getmerge TripAmountSamp.out TripAmountSamp.txt
+-output /user/wl2154/TripAmountSamp
+hfs -get TripAmountSamp
+hfs -getmerge TripAmountSamp TripAmountSamp.txt
+rm -rf TripAmountSamp
 cat TripAmountSamp.txt
 '''
 
 
 # Run Code
 '''
-cd ~/hw1/Task2-b/
-rm -rf TripAmount.out
-hfs -rm -r TripAmount.out
+cd ~/hw1/task2-b/
+rm -rf TripAmount
+hfs -rm -r TripAmount
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-b/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-b/ \
+-mapper task2-b/map.py \
+-reducer task2-b/reduce.py \
 -input /user/wl2154/TripFareJoin.txt \
--output /user/wl2154/TripAmount.out
-hfs -get TripAmount.out
-hfs -getmerge TripAmount.out TripAmount.txt
+-output /user/wl2154/TripAmount
+hfs -get TripAmount
+hfs -getmerge TripAmount TripAmount.txt
 cat TripAmount.txt
 '''

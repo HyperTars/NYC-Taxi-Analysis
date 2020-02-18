@@ -38,32 +38,33 @@ if prev_date == date:
 
 # Test Code
 '''
-cd ~/hw1/Task2-d/
-rm -rf TotalRevenueSamp.out
-hfs -rm -r TotalRevenueSamp.out
+cd ~/hw1/task2-d/
+rm -rf TotalRevenueSamp
+hfs -rm -r TotalRevenueSamp
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-d/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-d/ \
+-mapper task2-d/map.py \
+-reducer task2-d/reduce.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/TotalRevenueSamp.out
-hfs -get TotalRevenueSamp.out
-hfs -getmerge TotalRevenueSamp.out TotalRevenueSamp.txt
+-output /user/wl2154/TotalRevenueSamp
+hfs -get TotalRevenueSamp
+hfs -getmerge TotalRevenueSamp TotalRevenueSamp.txt
+rm -rf TotalRevenueSamp
 cat TotalRevenueSamp.txt
 '''
 
 # Run Code
 '''
-cd ~/hw1/Task2-d/
-rm -rf TotalRevenue.out
-hfs -rm -r TotalRevenue.out
+cd ~/hw1/task2-d/
+rm -rf TotalRevenue
+hfs -rm -r TotalRevenue
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-d/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-d/ \
+-mapper task2-d/map.py \
+-reducer task2-d/reduce.py \
 -input /user/wl2154/TripFareJoin.txt \
--output /user/wl2154/TotalRevenue.out
-hfs -get TotalRevenue.out
-hfs -getmerge TotalRevenue.out TotalRevenue.txt
+-output /user/wl2154/TotalRevenue
+hfs -get TotalRevenue
+hfs -getmerge TotalRevenue TotalRevenue.txt
 cat TotalRevenue.txt
 '''

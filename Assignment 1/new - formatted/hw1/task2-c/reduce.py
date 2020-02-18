@@ -40,32 +40,33 @@ print '%s\t%s' % ('total', total)
 
 # Test Code
 '''
-cd ~/hw1/Task2-c/
-rm -rf NumberPassengersSamp.out
-hfs -rm -r NumberPassengersSamp.out
+cd ~/hw1/task2-c/
+rm -rf NumberPassengersSamp
+hfs -rm -r NumberPassengersSamp
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-c/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-c/ \
+-mapper task2-c/map.py \
+-reducer task2-c/reduce.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/NumberPassengersSamp.out
-hfs -get NumberPassengersSamp.out
-hfs -getmerge NumberPassengersSamp.out NumberPassengersSamp.txt
+-output /user/wl2154/NumberPassengersSamp
+hfs -get NumberPassengersSamp
+hfs -getmerge NumberPassengersSamp NumberPassengersSamp.txt
+rm -rf NumberPassengersSamp
 cat NumberPassengersSamp.txt
 '''
 
 # Run Code
 '''
-cd ~/hw1/Task2-c/
-rm -rf NumberPassengers.out
-hfs -rm -r NumberPassengers.out
+cd ~/hw1/task2-c/
+rm -rf NumberPassengers
+hfs -rm -r NumberPassengers
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-c/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-c/ \
+-mapper task2-c/map.py \
+-reducer task2-c/reduce.py \
 -input /user/wl2154/TripFareJoin.txt \
--output /user/wl2154/NumberPassengers.out
-hfs -get NumberPassengers.out
-hfs -getmerge NumberPassengers.out NumberPassengers.txt
+-output /user/wl2154/NumberPassengers
+hfs -get NumberPassengers
+hfs -getmerge NumberPassengers NumberPassengers.txt
 cat NumberPassengers.txt
 '''

@@ -46,33 +46,34 @@ if prev_taxi == taxi:
 
 # Test Code
 '''
-cd ~/hw1/Task2-e/
-rm -rf MedallionTripsSamp.out
-hfs -rm -r MedallionTripsSamp.out
+cd ~/hw1/task2-e/
+rm -rf MedallionTripsSamp
+hfs -rm -r MedallionTripsSamp
 hjs -D mapreduce.job.reduces=1 \
--file ~/Task2-e/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/task2-e/ \
+-mapper task2-e/map.py \
+-reducer task2-e/reduce.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/MedallionTripsSamp.out
-hfs -get MedallionTripsSamp.out
-hfs -getmerge MedallionTripsSamp.out MedallionTripsSamp.txt
+-output /user/wl2154/MedallionTripsSamp
+hfs -get MedallionTripsSamp
+hfs -getmerge MedallionTripsSamp MedallionTripsSamp.txt
+rm -rf MedallionTripsSamp
 cat MedallionTripsSamp.txt
 '''
 
 # Run Code
 '''
-cd ~/hw1/Task2-e/
-rm -rf MedallionTrips.out
-hfs -rm -r MedallionTrips.out
+cd ~/hw1/task2-e/
+rm -rf MedallionTrips
+hfs -rm -r MedallionTrips
 hjs -D mapreduce.job.reduces=1 \
--file ~/Task2-e/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/task2-e/ \
+-mapper task2-e/map.py \
+-reducer task2-e/reduce.py \
 -input /user/wl2154/TripFareJoin.txt \
--output /user/wl2154/MedallionTrips.out
-hfs -get MedallionTrips.out
-hfs -getmerge MedallionTrips.out MedallionTrips.txt
+-output /user/wl2154/MedallionTrips
+hfs -get MedallionTrips
+hfs -getmerge MedallionTrips MedallionTrips.txt
 tail MedallionTrips.txt
 wc -l MedallionTrips.txt
 '''

@@ -18,16 +18,15 @@ for line in sys.stdin:
 
 # Test Code
 '''
-cd ~/hw1/Task2-b
-rm -rf TripAmountSamp.out
-hfs -rm -r TripAmountSamp.out
+cd ~/hw1/task2-b
+rm -rf TripAmountSamp
+hfs -rm -r TripAmountSamp
 hjs -D mapreduce.job.reduces=0 \
--file ~/hw1/Task2-b/src/ \
--mapper src/mapper.sh \
+-file ~/hw1/task2-b/ \
+-mapper task2-b/map.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/TripAmountSamp.out
-hfs -get TripAmountSamp.out
-hfs -getmerge TripAmountSamp.out TripAmountSamp.txt
+-output /user/wl2154/TripAmountSamp
+hfs -get TripAmountSamp
+hfs -getmerge TripAmountSamp TripAmountSamp.txt
 cat TripAmountSamp.txt
 '''
-

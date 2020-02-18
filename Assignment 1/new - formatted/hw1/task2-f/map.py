@@ -13,15 +13,15 @@ for line in sys.stdin:
     print '%s\t%s' % (lic, med)
 
 '''
-cd ~/hw1/Task2-f/
-rm -rf UniqueTaxisSamp.out
-hfs -rm -r UniqueTaxisSamp.out
+cd ~/hw1/task2-f/
+rm -rf UniqueTaxisSamp
+hfs -rm -r UniqueTaxisSamp
 hjs -D mapreduce.job.reduces=0 \
--file ~/hw1/Task2-f/src/ \
--mapper src/mapper.sh \
+-file ~/hw1/task2-f/ \
+-mapper task2-f/map.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/UniqueTaxisSamp.out
-hfs -get UniqueTaxisSamp.out
-hfs -getmerge UniqueTaxisSamp.out UniqueTaxisSamp.txt
+-output /user/wl2154/UniqueTaxisSamp
+hfs -get UniqueTaxisSamp
+hfs -getmerge UniqueTaxisSamp UniqueTaxisSamp.txt
 cat UniqueTaxisSamp.txt
 '''

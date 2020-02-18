@@ -36,33 +36,34 @@ if prev_lic == lic:
 
 # Test Code
 '''
-cd ~/hw1/Task2-f/
-rm -rf UniqueTaxisSamp.out
-hfs -rm -r UniqueTaxisSamp.out
+cd ~/hw1/task2-f/
+rm -rf UniqueTaxisSamp
+hfs -rm -r UniqueTaxisSamp
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-f/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-f/ \
+-mapper task2-f/map.py \
+-reducer task2-f/reduce.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/UniqueTaxisSamp.out
-hfs -get UniqueTaxisSamp.out
-hfs -getmerge UniqueTaxisSamp.out UniqueTaxisSamp.txt
+-output /user/wl2154/UniqueTaxisSamp
+hfs -get UniqueTaxisSamp
+hfs -getmerge UniqueTaxisSamp UniqueTaxisSamp.txt
+rm -rf UniqueTaxisSamp
 cat UniqueTaxisSamp.txt
 '''
 
 # Run Code
 '''
-cd ~/hw1/Task2-f/
-rm -rf UniqueTaxis.out
-hfs -rm -r UniqueTaxis.out
+cd ~/hw1/task2-f/
+rm -rf UniqueTaxis
+hfs -rm -r UniqueTaxis
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-f/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-f/ \
+-mapper task2-f/map.py \
+-reducer task2-f/reduce.py \
 -input /user/wl2154/TripFareJoin.txt \
--output /user/wl2154/UniqueTaxis.out
-hfs -get UniqueTaxis.out
-hfs -getmerge UniqueTaxis.out UniqueTaxis.txt
+-output /user/wl2154/UniqueTaxis
+hfs -get UniqueTaxis
+hfs -getmerge UniqueTaxis UniqueTaxis.txt
 tail UniqueTaxis.txt
 wc -l UniqueTaxis.txt
 '''

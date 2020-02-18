@@ -25,15 +25,15 @@ for line in sys.stdin:
     print '%s\t%s,%s' % (day, revenue, tolls)
 
 '''
-cd ~/hw1/Task2-d
-rm -rf TotalRevenueSamp.out
-hfs -rm -r TotalRevenueSamp.out
+cd ~/hw1/task2-d
+rm -rf TotalRevenueSamp
+hfs -rm -r TotalRevenueSamp
 hjs -D mapreduce.job.reduces=0 \
--file ~/hw1/Task2-d/src/ \
--mapper src/mapper.sh \
+-file ~/hw1/task2-d/ \
+-mapper task2-d/map.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/TotalRevenueSamp.out
-hfs -get TotalRevenueSamp.out
-hfs -getmerge TotalRevenueSamp.out TotalRevenueSamp.txt
+-output /user/wl2154/TotalRevenueSamp
+hfs -get TotalRevenueSamp
+hfs -getmerge TotalRevenueSamp TotalRevenueSamp.txt
 cat TotalRevenueSamp.txt
 '''

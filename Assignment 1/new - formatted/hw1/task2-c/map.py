@@ -15,15 +15,15 @@ for line in sys.stdin:
     print '%s\t%s' % (key, 1)
 
 '''
-cd ~/hw1/Task2-c/
-rm -rf NumberPassengersSamp.out
-hfs -rm -r NumberPassengersSamp.out
+cd ~/hw1/task2-c/
+rm -rf NumberPassengersSamp
+hfs -rm -r NumberPassengersSamp
 hjs -D mapreduce.job.reduces=0 \
--file ~/hw1/Task2-c/src/ \
--mapper src/mapper.sh \
+-file ~/hw1/task2-c/ \
+-mapper task2-c/map.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/NumberPassengersSamp.out
-hfs -get NumberPassengersSamp.out
-hfs -getmerge NumberPassengersSamp.out NumberPassengersSamp.txt
+-output /user/wl2154/NumberPassengersSamp
+hfs -get NumberPassengersSamp
+hfs -getmerge NumberPassengersSamp NumberPassengersSamp.txt
 cat NumberPassengersSamp.txt
 '''
