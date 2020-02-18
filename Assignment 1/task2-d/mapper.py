@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-import os
-from operator import itemgetter
 import sys
 
 for line in sys.stdin:

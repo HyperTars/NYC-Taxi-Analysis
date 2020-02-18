@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from operator import itemgetter
 import sys
 
 count = 0

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from operator import itemgetter
 import sys
 
 prev_key = ''
@@ -14,7 +13,7 @@ for line in sys.stdin:
     key, val = line.strip().split('\t', 1)
 
     # skip trip(key) already counted
-    #if key == prev_key and prev_key != '':
+    # if key == prev_key and prev_key != '':
     #    continue
     # skip trip (key & val) already counted
     if prev_key != '' and prev_val != '':
