@@ -58,6 +58,7 @@ hjs -D mapreduce.job.reduces=1 \
 -output /user/wl2154/VehicleJoinSamp
 hfs -get VehicleJoinSamp
 hfs -getmerge VehicleJoinSamp VehicleJoinSamp.txt
+rm -rf VehicleJoinSamp
 cat VehicleJoinSamp.txt
 '''
 
