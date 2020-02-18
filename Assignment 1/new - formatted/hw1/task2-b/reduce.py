@@ -19,7 +19,7 @@ for line in sys.stdin:
 # print
 print count
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-b/
 rm -rf TripAmountSamp
@@ -37,7 +37,7 @@ cat TripAmountSamp.txt
 '''
 
 
-# Run Code
+# Run Complete Dataset Code
 '''
 cd ~/hw1/task2-b/
 rm -rf TripAmount

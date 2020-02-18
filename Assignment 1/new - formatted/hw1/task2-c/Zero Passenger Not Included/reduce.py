@@ -29,7 +29,7 @@ while count[j] == 0:
     j -= 1
 
 # print
-for idx in range(0, max):
+for idx in range(1, max):
     print '%s\t%s' % (idx, count[idx])
 
 total = 0

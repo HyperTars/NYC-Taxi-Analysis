@@ -5,6 +5,10 @@
 *join.txt
 *.txt
 *.swp
+*PART-00000
+*PART*
+*000
+*SUCCESS
 !*Samp.txt
 !book.txt
 !examplemerged.txt

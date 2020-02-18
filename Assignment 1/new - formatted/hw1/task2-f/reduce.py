@@ -34,7 +34,7 @@ for line in sys.stdin:
 if prev_lic == lic:
     print '%s\t%s' % (prev_lic, len(lic_med))
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-f/
 rm -rf UniqueTaxisSamp
@@ -51,7 +51,7 @@ rm -rf UniqueTaxisSamp
 cat UniqueTaxisSamp.txt
 '''
 
-# Run Code
+# Run Complete Dataset Code
 '''
 cd ~/hw1/task2-f/
 rm -rf UniqueTaxis

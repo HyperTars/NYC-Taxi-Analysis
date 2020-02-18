@@ -14,6 +14,7 @@ for line in sys.stdin:
     # print
     print '%s\t%s' % (key, 1)
 
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-c/
 rm -rf NumberPassengersSamp

@@ -14,7 +14,7 @@ for line in sys.stdin:
     # print
     print '%s\t%s' % (taxi, date)
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-e/
 rm -rf MedallionTripsSamp

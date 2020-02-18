@@ -36,7 +36,7 @@ for line in sys.stdin:
 if prev_date == date:
     print '%s\t%.2f,%.2f' % (prev_date, total_revenue, total_tolls)
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-d/
 rm -rf TotalRevenueSamp
@@ -53,7 +53,7 @@ rm -rf TotalRevenueSamp
 cat TotalRevenueSamp.txt
 '''
 
-# Run Code
+# Run Complete Dataset Code
 '''
 cd ~/hw1/task2-d/
 rm -rf TotalRevenue

@@ -24,6 +24,7 @@ for line in sys.stdin:
     # print
     print '%s\t%s,%s' % (day, revenue, tolls)
 
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task2-d
 rm -rf TotalRevenueSamp
