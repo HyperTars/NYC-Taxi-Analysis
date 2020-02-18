@@ -29,7 +29,7 @@ for line in sys.stdin:
         fares_val.append(val)
     if len(s_val) == 10:
         trips_val.append(val)
-        
+
 
 for trips in trips_val:
     for fares in fares_val:
