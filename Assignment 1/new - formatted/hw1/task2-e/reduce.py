@@ -50,7 +50,7 @@ cd ~/hw1/task2-e/
 rm -rf MedallionTripsSamp
 hfs -rm -r MedallionTripsSamp
 hjs -D mapreduce.job.reduces=1 \
--file ~/task2-e/ \
+-file ~/hw1/task2-e/ \
 -mapper task2-e/map.py \
 -reducer task2-e/reduce.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
@@ -67,7 +67,7 @@ cd ~/hw1/task2-e/
 rm -rf MedallionTrips
 hfs -rm -r MedallionTrips
 hjs -D mapreduce.job.reduces=1 \
--file ~/task2-e/ \
+-file ~/hw1/task2-e/ \
 -mapper task2-e/map.py \
 -reducer task2-e/reduce.py \
 -input /user/wl2154/TripFareJoin.txt \

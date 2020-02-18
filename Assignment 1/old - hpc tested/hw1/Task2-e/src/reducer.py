@@ -50,7 +50,7 @@ cd ~/hw1/Task2-e/
 rm -rf MedallionTripsSamp.out
 hfs -rm -r MedallionTripsSamp.out
 hjs -D mapreduce.job.reduces=1 \
--file ~/Task2-e/src/ \
+-file ~/hw1/Task2-e/src/ \
 -mapper src/mapper.sh \
 -reducer src/reducer.sh \
 -input /user/wl2154/TripFareJoinSamp.txt \
@@ -66,7 +66,7 @@ cd ~/hw1/Task2-e/
 rm -rf MedallionTrips.out
 hfs -rm -r MedallionTrips.out
 hjs -D mapreduce.job.reduces=1 \
--file ~/Task2-e/src/ \
+-file ~/hw1/Task2-e/src/ \
 -mapper src/mapper.sh \
 -reducer src/reducer.sh \
 -input /user/wl2154/TripFareJoin.txt \
