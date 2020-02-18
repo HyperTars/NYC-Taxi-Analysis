@@ -5,6 +5,15 @@ taxi = None
 prev_taxi = None
 taxi_his = {}
 
+
+def output():
+    count_trips = 0
+    for his in taxi_his.values():
+        count_trips += his
+    count_date = len(taxi_his)
+    print '%s\t%d,%.2f' % (prev_taxi, count_trips, float(count_trips)/float(count_date))
+
+
 for line in sys.stdin:
     taxi, date = line.strip().split('\t', 1)
 
@@ -16,21 +25,14 @@ for line in sys.stdin:
 
     else:
         if (prev_taxi):
-            count_trips = 0
-            for his in taxi_his.values():
-                count_trips += his
-            count_date = len(taxi_his)
-            print '%s\t%d,%.2f' % (prev_taxi, count_trips, float(count_trips)/float(count_date))
+            output()
         prev_taxi = taxi
         taxi_his = {}
         taxi_his[date] = 1
 
 if prev_taxi == taxi:
-    count_trips = 0
-    for his in taxi_his.values():
-        count_trips += his
-    count_date = len(taxi_his)
-    print '%s\t%d,%.2f' % (prev_taxi, count_trips, float(count_trips)/float(count_date))
+    output()
+
 '''
 rm -rf MedallionTrips.out
 hfs -rm -r MedallionTrips.out
