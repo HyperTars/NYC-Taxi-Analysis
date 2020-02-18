@@ -2,39 +2,52 @@
 import sys
 
 count = 0
-prev_key = ''
-sel_trips = []
 
 for line in sys.stdin:
+    # extract data
     key, val = line.strip().split('\t', 1)
 
-    # skip trip(key) already counted
-    if key == prev_key and prev_key != '':
-        continue
-
+    # total_amount
     try:
-        val = float(val)
+        key = float(key)
     except ValueError:
         continue
 
-    if val <= 10.00:
-        count += 1
-        # test
-        prev_key = key
-        print '%s\t%s\t%s' % (key, val, count)
+    # accumulate
+    count += 1
 
+# print
 print count
 
+# Test Code
 '''
+cd ~/hw1/Task2-b/
+rm -rf TripAmountSamp.out
+hfs -rm -r TripAmountSamp.out
+hjs -D mapreduce.job.reduces=1 \
+-file ~/hw1/Task2-b/src/ \
+-mapper src/mapper.sh \
+-reducer src/reducer.sh \
+-input /user/wl2154/TripFareJoinSamp.txt \
+-output /user/wl2154/TripAmountSamp.out
+hfs -get TripAmountSamp.out
+hfs -getmerge TripAmountSamp.out TripAmountSamp.txt
+cat TripAmountSamp.txt
+'''
+
+
+# Run Code
+'''
+cd ~/hw1/Task2-b/
 rm -rf TripAmount.out
 hfs -rm -r TripAmount.out
 hjs -D mapreduce.job.reduces=1 \
--file ~/Task2-b/src/ \
+-file ~/hw1/Task2-b/src/ \
 -mapper src/mapper.sh \
 -reducer src/reducer.sh \
 -input /user/wl2154/TripFareJoin.txt \
 -output /user/wl2154/TripAmount.out
 hfs -get TripAmount.out
 hfs -getmerge TripAmount.out TripAmount.txt
-
+cat TripAmount.txt
 '''

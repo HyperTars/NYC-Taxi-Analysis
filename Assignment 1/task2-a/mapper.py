@@ -24,7 +24,7 @@ for line in sys.stdin:
     except ValueError:
         continue
 
-    # classify and output
+    # classify and print
     for range in ranges:
         if range[0] <= key and key <= range[1]:
             if (range[0] == 48.01):

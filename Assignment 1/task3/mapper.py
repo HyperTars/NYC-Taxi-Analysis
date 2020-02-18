@@ -12,6 +12,7 @@ for line in sys.stdin:
     key = data[0]
     val = ','.join(data[1:])
 
+    # print
     if 'MEDALLION' in line or 'CUR' in line:
         print '%s\tlc,%s' % (key, val)
     else:
