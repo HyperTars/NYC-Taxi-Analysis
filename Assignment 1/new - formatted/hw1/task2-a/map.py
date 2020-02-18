@@ -38,14 +38,15 @@ for line in sys.stdin:
 # Test Sample Dataset Code
 '''
 cd ~/hw1/task2-a
-rm -rf FareAmountSamp.out
-hfs -rm -r FareAmountSamp.out
+rm -rf FareAmountSamp
+hfs -rm -r FareAmountSamp
 hjs -D mapreduce.job.reduces=0 \
--file ~/hw1/Task2-a/src/ \
--mapper src/mapper.sh \
+-file ~/hw1/task2-a/ \
+-mapper task2-a/map.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/FareAmountSamp.out
-hfs -get FareAmountSamp.out
-hfs -getmerge FareAmountSamp.out FareAmountSamp.txt
+-output /user/wl2154/FareAmountSamp
+hfs -get FareAmountSamp
+hfs -getmerge FareAmountSamp FareAmountSamp.txt
+rm -rf FareAmountSamp
 cat FareAmountSamp.txt
 '''

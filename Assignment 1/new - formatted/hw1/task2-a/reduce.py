@@ -38,33 +38,34 @@ print '%s\t%s' % ('48.01, infinite', count[13])
 
 # Test Sample Dataset Code
 '''
-cd ~/hw1/Task2-a/
-rm -rf FareAmountSamp.out
-hfs -rm -r FareAmountSamp.out
+cd ~/hw1/task2-a/
+rm -rf FareAmountSamp
+hfs -rm -r FareAmountSamp
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-a/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-a/ \
+-mapper task2-a/map.py \
+-reducer task2-a/reduce.py \
 -input /user/wl2154/TripFareJoinSamp.txt \
--output /user/wl2154/FareAmountSamp.out
-hfs -get FareAmountSamp.out
-hfs -getmerge FareAmountSamp.out FareAmountSamp.txt
+-output /user/wl2154/FareAmountSamp
+hfs -get FareAmountSamp
+hfs -getmerge FareAmountSamp FareAmountSamp.txt
+rm -rf FareAmountSamp
 cat FareAmountSamp.txt
 '''
 
 
-# Run Code
+# Run Complete Dataset Code
 '''
-cd ~/hw1/Task2-a/
-rm -rf FareAmount.out
-hfs -rm -r FareAmount.out
+cd ~/hw1/task2-a/
+rm -rf FareAmount
+hfs -rm -r FareAmount
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task2-a/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task2-a/ \
+-mapper task2-a/map.py \
+-reducer task2-a/reduce.py \
 -input /user/wl2154/TripFareJoin.txt \
--output /user/wl2154/FareAmount.out
-hfs -get FareAmount.out
-hfs -getmerge FareAmount.out FareAmount.txt
+-output /user/wl2154/FareAmount
+hfs -get FareAmount
+hfs -getmerge FareAmount FareAmount.txt
 cat FareAmount.txt
 '''
