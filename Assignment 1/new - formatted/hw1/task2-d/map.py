@@ -35,5 +35,6 @@ hjs -D mapreduce.job.reduces=0 \
 -output /user/wl2154/TotalRevenueSamp
 hfs -get TotalRevenueSamp
 hfs -getmerge TotalRevenueSamp TotalRevenueSamp.txt
+rm -rf TotalRevenueSamp
 cat TotalRevenueSamp.txt
 '''

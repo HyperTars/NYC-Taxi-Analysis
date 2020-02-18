@@ -28,5 +28,6 @@ hjs -D mapreduce.job.reduces=0 \
 -output /user/wl2154/TripAmountSamp
 hfs -get TripAmountSamp
 hfs -getmerge TripAmountSamp TripAmountSamp.txt
+rm -rf TripAmountSamp
 cat TripAmountSamp.txt
 '''

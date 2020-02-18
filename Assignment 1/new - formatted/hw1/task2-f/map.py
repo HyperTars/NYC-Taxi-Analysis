@@ -23,5 +23,6 @@ hjs -D mapreduce.job.reduces=0 \
 -output /user/wl2154/UniqueTaxisSamp
 hfs -get UniqueTaxisSamp
 hfs -getmerge UniqueTaxisSamp UniqueTaxisSamp.txt
+rm -rf UniqueTaxisSamp
 cat UniqueTaxisSamp.txt
 '''

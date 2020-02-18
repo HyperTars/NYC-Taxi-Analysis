@@ -26,5 +26,6 @@ hjs -D mapreduce.job.reduces=0 \
 -output /user/wl2154/MedallionTripsSamp
 hfs -get MedallionTripsSamp
 hfs -getmerge MedallionTripsSamp MedallionTripsSamp.txt
+rm -rf MedallionTripsSamp
 cat MedallionTripsSamp.txt
 '''
