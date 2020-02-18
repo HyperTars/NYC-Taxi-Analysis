@@ -47,33 +47,34 @@ if prev_key == key:
 
 # Test Code
 '''
-cd ~/hw1/Task1
-rm -rf TripFareJoinSamp.out
-hfs -rm -r TripFareJoinSamp.out
+cd ~/hw1/task1
+rm -rf TripFareJoinSamp
+hfs -rm -r TripFareJoinSamp
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task1/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task1/ \
+-mapper task1/map.py \
+-reducer task1/reduce.py \
 -input /user/wl2154/fares_samp.csv /user/wl2154/trips_samp.csv \
--output /user/wl2154/TripFareJoinSamp.out
-hfs -get TripFareJoinSamp.out
-hfs -getmerge TripFareJoinSamp.out TripFareJoinSamp.txt
+-output /user/wl2154/TripFareJoinSamp
+hfs -get TripFareJoinSamp
+hfs -getmerge TripFareJoinSamp TripFareJoinSamp.txt
+rm -rf TripFareJoinSamp
 cat TripFareJoinSamp.txt
 '''
 
 # Run Code
 '''
-cd ~/hw1/Task1
-rm -rf TripFareJoin.out
-hfs -rm -r TripFareJoin.out
+cd ~/hw1/task1
+rm -rf TripFareJoin
+hfs -rm -r TripFareJoin
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task1/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task1/ \
+-mapper task1/map.py \
+-reducer task1/reduce.py \
 -input /user/wl2154/fare_data.csv /user/wl2154/trip_data.csv \
--output /user/wl2154/TripFareJoin.out
-hfs -get TripFareJoin.out
-hfs -getmerge TripFareJoin.out TripFareJoin.txt
+-output /user/wl2154/TripFareJoin
+hfs -get TripFareJoin
+hfs -getmerge TripFareJoin TripFareJoin.txt
 hfs -rm TripFareJoin.txt
 hfs -put TripFareJoin.txt
 head TripFareJoin.txt
