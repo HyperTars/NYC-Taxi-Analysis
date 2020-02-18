@@ -36,7 +36,7 @@ print '%s\t%s' % ('40.01, 44', count[11])
 print '%s\t%s' % ('44.01, 48', count[12])
 print '%s\t%s' % ('48.01, infinite', count[13])
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/Task2-a/
 rm -rf FareAmountSamp.out

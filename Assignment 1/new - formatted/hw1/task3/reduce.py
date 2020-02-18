@@ -45,35 +45,35 @@ for line in sys.stdin:
 if prev_key == key:
     output()
 
-# Test Code
+# Test Sample Dataset Code
 '''
-cd ~/hw1/Task3
-rm -rf VehicleJoinSamp.out
-hfs -rm -r VehicleJoinSamp.out
+cd ~/hw1/task3
+rm -rf VehicleJoinSamp
+hfs -rm -r VehicleJoinSamp
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task3/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task3 \
+-mapper task3/map.py \
+-reducer task3/reduce.py \
 -input /user/wl2154/TripFareJoinSamp.txt /user/wl2154/licenses_samp.csv \
--output /user/wl2154/VehicleJoinSamp.out
-hfs -get VehicleJoinSamp.out
-hfs -getmerge VehicleJoinSamp.out VehicleJoinSamp.txt
+-output /user/wl2154/VehicleJoinSamp
+hfs -get VehicleJoinSamp
+hfs -getmerge VehicleJoinSamp VehicleJoinSamp.txt
 cat VehicleJoinSamp.txt
 '''
 
-# Run Code
+# Run Complete Dataset Code
 '''
-cd ~/hw1/Task3
-rm -rf VehicleJoin.out
-hfs -rm -r VehicleJoin.out
+cd ~/hw1/task3
+rm -rf VehicleJoin
+hfs -rm -r VehicleJoin
 hjs -D mapreduce.job.reduces=1 \
--file ~/hw1/Task3/src/ \
--mapper src/mapper.sh \
--reducer src/reducer.sh \
+-file ~/hw1/task3 \
+-mapper task3/map.py \
+-reducer task3/reduce.py \
 -input /user/wl2154/TripFareJoin.txt /user/wl2154/licenses.csv \
--output /user/wl2154/VehicleJoin.out
-hfs -get VehicleJoin.out
-hfs -getmerge VehicleJoin.out VehicleJoin.txt
+-output /user/wl2154/VehicleJoin
+hfs -get VehicleJoin
+hfs -getmerge VehicleJoin VehicleJoin.txt
 head VehicleJoin.txt
 tail VehicleJoin.txt
 wc -l VehicleJoin.txt

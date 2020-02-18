@@ -35,9 +35,9 @@ for line in sys.stdin:
                 print '%s\t%s' % (str(range[1]/4), 1)
             break
 
-# Test Code
+# Test Sample Dataset Code
 '''
-cd ~/hw1/Task2-a
+cd ~/hw1/task2-a
 rm -rf FareAmountSamp.out
 hfs -rm -r FareAmountSamp.out
 hjs -D mapreduce.job.reduces=0 \
