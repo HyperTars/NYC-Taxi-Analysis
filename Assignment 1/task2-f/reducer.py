@@ -16,7 +16,6 @@ for line in sys.stdin:
 
     else:
         if (prev_lic):
-            a = 1
             print '%s\t%s' % (prev_lic, len(lic_med))
         prev_lic = lic
         lic_med = []
