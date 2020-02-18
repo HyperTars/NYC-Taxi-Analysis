@@ -1,40 +1,34 @@
 #!/usr/bin/env python
 import sys
 
-prev_key = ''
-prev_val = ''
+# construct count list
 count = []
 i = 0
-while i <= 20:
+while i <= 50:
     count.append(0)
     i += 1
 
 for line in sys.stdin:
+    # extract data
     key, val = line.strip().split('\t', 1)
 
-    # skip trip(key) already counted
-    # if key == prev_key and prev_key != '':
-    #    continue
-    # skip trip (key & val) already counted
-    if prev_key != '' and prev_val != '':
-        if key == prev_key and val == prev_val:
-            continue
-
+    # passenger_count
     try:
-        val = int(val)
+        key = int(key)
     except ValueError:
         continue
 
-    count[val] += 1
-    prev_key = key
-    prev_val = val
+    # accumulate
+    count[key] += 1
 
-j = 20
-max = 20
+# delete redundant data
+j = 50
+max = 50
 while count[j] == 0:
     max = j
     j -= 1
 
+# print
 for idx in range(1, max):
     print '%s\t%s' % (idx, count[idx])
 
@@ -44,14 +38,32 @@ for cnt in count:
 
 print '%s\t%s' % ('total', total)
 
+# Test Code
 '''
-rm -rf NumberPassengers.out
-hfs -rm -r NumberPassengers.out
+cd ~/hw1/Task2-c/
+rm -rf NumberPassengersSamp.out
+hfs -rm -r NumberPassengersSamp.out
 hjs -D mapreduce.job.reduces=1 \
--file ~/Task2-c/src/ \
+-file ~/hw1/Task2-c/src/ \
 -mapper src/mapper.sh \
 -reducer src/reducer.sh \
 -input /user/wl2154/TripFareJoinSamp.txt \
+-output /user/wl2154/NumberPassengersSamp.out
+hfs -get NumberPassengersSamp.out
+hfs -getmerge NumberPassengersSamp.out NumberPassengersSamp.txt
+cat NumberPassengersSamp.txt
+'''
+
+# Run Code
+'''
+cd ~/hw1/Task2-c/
+rm -rf NumberPassengers.out
+hfs -rm -r NumberPassengers.out
+hjs -D mapreduce.job.reduces=1 \
+-file ~/hw1/Task2-c/src/ \
+-mapper src/mapper.sh \
+-reducer src/reducer.sh \
+-input /user/wl2154/TripFareJoin.txt \
 -output /user/wl2154/NumberPassengers.out
 hfs -get NumberPassengers.out
 hfs -getmerge NumberPassengers.out NumberPassengers.txt

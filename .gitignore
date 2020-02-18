@@ -1,5 +1,8 @@
 .DS_Store
 .vscode/
+*.zip
+*Join.txt
+*join.txt
 *.txt
 *.swp
 !*Samp.txt
