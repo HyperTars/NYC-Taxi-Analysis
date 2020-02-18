@@ -23,7 +23,7 @@ for line in sys.stdin:
         val = ','.join(data[3:5] + data[6:])
         print '%s\tt,%s' % (key, val)
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task1/
 rm -rf TripFareJoinSamp

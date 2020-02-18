@@ -45,7 +45,7 @@ for line in sys.stdin:
 if prev_key == key:
     output()
 
-# Test Code
+# Test Sample Dataset Code
 '''
 cd ~/hw1/task1
 rm -rf TripFareJoinSamp
@@ -62,7 +62,7 @@ rm -rf TripFareJoinSamp
 cat TripFareJoinSamp.txt
 '''
 
-# Run Code
+# Run Complete Dataset Code
 '''
 cd ~/hw1/task1
 rm -rf TripFareJoin
