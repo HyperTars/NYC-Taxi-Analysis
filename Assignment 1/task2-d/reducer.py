@@ -16,7 +16,7 @@ for line in sys.stdin:
     except ValueError:
         continue
 
-    # key exists, accumulate
+    # key (date) exists, accumulate
     if prev_date == date:
         total_revenue += float_revenue
         total_tolls += float_tolls
