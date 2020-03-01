@@ -28,6 +28,7 @@ output = result.map(lambda x: x[0] + ',' + \
     ','.join(x[1][0]) + ',' + ','.join(x[1][1]))
 output.saveAsTextFile("task1b.out")
 
+sc.stop()
 '''
 module load python/gnu/3.4.4
 module load spark/2.2.0
