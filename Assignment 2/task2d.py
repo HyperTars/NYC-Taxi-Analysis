@@ -16,6 +16,7 @@ dic = {}
 for key in trips.keys():
     val = []
     val.append(trips[key])
+    val.append(days[key])
     if (days[key] != 0):
         val.append('%.2f' % (trips[key] / days[key]))
     else:
@@ -23,7 +24,7 @@ for key in trips.keys():
     dic[key] = val
 
 output = sc.parallelize(list(dic.items()))
-output = output.map(lambda x: x[0] + ',' + str(x[1][0]) + ',' + str(x[1][1]))
+output = output.map(lambda x: x[0] + ',' + str(x[1][0]) + ',' + str(x[1][1])+ ',' + str(x[1][2]))
 
 output.saveAsTextFile("task2d.out")
 

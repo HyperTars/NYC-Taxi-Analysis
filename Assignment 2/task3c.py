@@ -15,7 +15,7 @@ coord = coord.map(lambda x: (x[0], 1)).reduceByKey(lambda x, y: x + y)
 empty = empty.map(lambda x: (x[0], 1)).reduceByKey(lambda x, y: x + y)
 result = coord.leftOuterJoin(empty)
 result = result.map(lambda x: (x[0], '%.2f' % (float(0 if x[1][1] is None else x[1][1]) / x[1][0] * 100)))
-output = result.sortBy(lambda x: x[0])
+result = result.sortBy(lambda x: x[0])
 output = result.map(lambda x: x[0] + ',' + x[1])
 output.saveAsTextFile("task3c.out")
 
