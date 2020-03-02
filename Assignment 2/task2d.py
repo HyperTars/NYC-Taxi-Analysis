@@ -7,10 +7,10 @@ file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))
 
-data = lines.map(lambda x: ((x[0]), 1))
-trips = data.countByKey()
-data = lines.map(lambda x: (x[0], x[3][:10]))
-days = data.distinct().countByKey()
+data_trips = lines.map(lambda x: ((x[0]), 1))
+trips = data_trips.countByKey()
+data_days = lines.map(lambda x: (x[0], x[3][:10]))
+days = data_days.distinct().countByKey()
 
 dic = {}
 for key in trips.keys():
