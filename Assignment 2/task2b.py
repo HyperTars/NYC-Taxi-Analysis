@@ -7,8 +7,6 @@ file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))
 passenger = lines.map(lambda x: (x[7], 1))
-# dayGroupedHosts = X.groupBy(lambda x: x[0]).distinct()
-
 distPass = passenger.reduceByKey(lambda x, y: x + y)
 result = distPass.sortBy(lambda x: x[0])
 output = result.map(lambda x: x[0] + ',' + str(x[1]))
