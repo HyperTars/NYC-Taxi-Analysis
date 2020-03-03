@@ -2,7 +2,7 @@ import sys
 from pyspark import SparkContext
 sc = SparkContext.getOrCreate()
 
-#file = sc.textFile("task1a.out")
+# file = sc.textFile("task1a.out")
 file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))
@@ -11,9 +11,10 @@ output = sc.parallelize([fa])
 output.saveAsTextFile("task3a.out")
 
 sc.stop()
+
 '''
-module load python/gnu/3.4.4
-module load spark/2.2.0
+module load python/gnu/3.6.5
+module load spark/2.4.0
 rm -rf task3a.out
 hfs -rm -R task3a.out
 spark-submit --conf \

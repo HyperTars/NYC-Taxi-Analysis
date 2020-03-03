@@ -15,8 +15,8 @@ output.saveAsTextFile("task2b.out")
 sc.stop()
 
 '''
-module load python/gnu/3.4.4
-module load spark/2.2.0
+module load python/gnu/3.6.5
+module load spark/2.4.0
 rm -rf task2b.out
 hfs -rm -R task2b.out
 spark-submit --conf \

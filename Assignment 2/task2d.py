@@ -24,15 +24,16 @@ for key in trips.keys():
     dic[key] = val
 
 output = sc.parallelize(list(dic.items()))
-output = output.map(lambda x: x[0] + ',' + str(x[1][0]) + ',' + str(x[1][1])+ ',' + str(x[1][2]))
+output = output.map(lambda x: x[0] + ',' + str(x[1][0]) + ',' + str(x[1][1]) \
+        + ',' + str(x[1][2]))
 
 output.saveAsTextFile("task2d.out")
 
 sc.stop()
 
 '''
-module load python/gnu/3.4.4
-module load spark/2.2.0
+module load python/gnu/3.6.5
+module load spark/2.4.0
 rm -rf task2d.out
 hfs -rm -R task2d.out
 spark-submit --conf \

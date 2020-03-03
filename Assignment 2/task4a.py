@@ -18,7 +18,7 @@ from itertools import accumulate
 
 def calsum(values):
     return [[k[0], k[1]] for k in zip(accumulate([i[0] for i in values]), \
-        accumulate([i[1] for i in values]))]
+            accumulate([i[1] for i in values]))]
 
 
 sc = SparkContext.getOrCreate()
@@ -26,26 +26,25 @@ sc = SparkContext.getOrCreate()
 file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(',MEDALLION,CUR,')). \
-    map(lambda x: ((x[0].split(',')), (x[1].split(','))))
-trips = lines.map(lambda x: (x[1][2], \
-    (float(x[0][5]), float(x[0][8]) / float(x[0][5]))))
+        map(lambda x: ((x[0].split(',')), (x[1].split(','))))
+trips = lines.map(lambda x: (x[1][2], (float(x[0][5]), float(x[0][8]))))
 
 result = trips.groupByKey().mapValues(calsum) \
-    .map(lambda x: (x[0], x[1][-1][0], x[1][-1][1] / x[1][-1][0] * 100)) \
-    .map(lambda x: (x[0], '%.2f' % x[1], '%.2f' % x[2]))
+        .map(lambda x: (x[0], x[1][-1][0], x[1][-1][1] / x[1][-1][0] * 100)) \
+        .map(lambda x: (x[0], '%.2f' % x[1], '%.2f' % x[2]))
 output = result.sortBy(lambda x: x[0]). \
-    map(lambda x: x[0] + ',' + x[1] + ',' + x[2])
+        map(lambda x: x[0] + ',' + x[1] + ',' + x[2])
 output.saveAsTextFile("task4a.out")
 
 sc.stop()
 
 '''
-module load python/gnu/3.4.4
-module load spark/2.2.0
+module load python/gnu/3.6.5
+module load spark/2.4.0
 rm -rf task4a.out
 hfs -rm -R task4a.out
 spark-submit --conf \
 spark.pyspark.python=/share/apps/python/3.6.5/bin/python \
-task4a.py task1a.out
+task4a.py task1b.out
 hfs -getmerge task4a.out task4a.out
 '''

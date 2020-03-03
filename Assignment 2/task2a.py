@@ -14,18 +14,19 @@ fa4 = fa.filter(lambda x: x > 30 and x <= 50).count()
 fa5 = fa.filter(lambda x: x > 50 and x <= 100).count()
 fa6 = fa.filter(lambda x: x > 100).count()
 result = sc.parallelize([("0,5", fa1), \
-    ("5,15", fa2), \
-    ("15,30", fa3), \
-    ("30,50", fa4), \
-    ("50,100", fa5), \
-    (">100", fa6)])
+        ("5,15", fa2), \
+        ("15,30", fa3), \
+        ("30,50", fa4), \
+        ("50,100", fa5), \
+        (">100", fa6)])
 output = result.map(lambda x: x[0] + ',' + str(x[1]))
 output.saveAsTextFile("task2a.out")
 
 sc.stop()
+
 '''
-module load python/gnu/3.4.4
-module load spark/2.2.0
+module load python/gnu/3.6.5
+module load spark/2.4.0
 rm -rf task2a.out
 hfs -rm -R task2a.out
 spark-submit --conf \
