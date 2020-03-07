@@ -19,8 +19,8 @@ map_fares = line_fares.map(lambda x: ((x[0], x[1], x[2], x[3]), \
 map_trips = line_trips.map(lambda x: ((x[0], x[1], x[2], x[5]), \
         (x[3], x[4], x[6], x[7], x[8], x[9], x[10], x[11], x[12], x[13])))
 
-result = map_trips.join(map_fares)
-result = result.sortBy(lambda x: (x[0][0], x[0][1], x[0][3]))
+result = map_trips.join(map_fares) \
+        .sortBy(lambda x: (x[0][0], x[0][1], x[0][3]))
 
 output = result.map(lambda x: ','.join(x[0]) + ',' + \
         ','.join(x[1][0]) + ',' + ','.join(x[1][1]))
