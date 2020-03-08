@@ -2,7 +2,6 @@ import sys
 from pyspark import SparkContext
 sc = SparkContext.getOrCreate()
 
-#lines = sc.textFile("task1aSamp.out")
 file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))
@@ -13,12 +12,9 @@ fa3 = fa.filter(lambda x: x > 15 and x <= 30).count()
 fa4 = fa.filter(lambda x: x > 30 and x <= 50).count()
 fa5 = fa.filter(lambda x: x > 50 and x <= 100).count()
 fa6 = fa.filter(lambda x: x > 100).count()
-result = sc.parallelize([("0,5", fa1), \
-        ("5,15", fa2), \
-        ("15,30", fa3), \
-        ("30,50", fa4), \
-        ("50,100", fa5), \
-        (">100", fa6)])
+result = sc.parallelize([("0,5", fa1), ("5,15", fa2),
+                        ("15,30", fa3), ("30,50", fa4),
+                        ("50,100", fa5), (">100", fa6)])
 output = result.map(lambda x: x[0] + ',' + str(x[1]))
 output.saveAsTextFile("task2a.out")
 

@@ -2,7 +2,6 @@ import sys
 from pyspark import SparkContext
 sc = SparkContext.getOrCreate()
 
-# file = sc.textFile("task1aSamp.out")
 file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))

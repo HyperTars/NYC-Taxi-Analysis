@@ -9,7 +9,6 @@ def calsum(values):
 
 
 sc = SparkContext.getOrCreate()
-# file = sc.textFile("AllTripsSamp.txt")
 file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))

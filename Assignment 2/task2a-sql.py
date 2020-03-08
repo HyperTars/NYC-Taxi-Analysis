@@ -6,9 +6,6 @@ from pyspark import SparkContext
 spark = SparkSession.builder.appName("task2a-sql").getOrCreate()
 sc = SparkContext.getOrCreate()
 
-#df = spark.read.format('csv').options(header='false', inferschema='false') \
-#    .load("task1a-sql.out").na.fill('')
-
 df = spark.read.format('csv').options(header='false', inferschema='false') \
     .load(sys.argv[1]).na.fill('')
 
@@ -33,10 +30,6 @@ res.show()
 
 res.write.csv('task2a-sql.out', quoteAll=False, header=False, quote='')
 
-res.select(format_string('%s,%s',
-           res.range, res.val)) \
-           .write.save('task2a-sql.out', foramt='text')
-
 '''
 module load python/gnu/3.6.5
 module load spark/2.4.0
@@ -52,7 +45,7 @@ cat task2a-sql.out
 
 ----
 data = [
-    {"range": "0,5", "val": fa1}, 
+    {"range": "0,5", "val": fa1},
     {"range": "5,15", "val": fa2},
     {"range": "15,30", "val": fa3},
     {"range": "30,50", "val": fa4},
@@ -61,7 +54,7 @@ data = [
 ]
 
 spark = SparkSession.builder.getOrCreate()
-df = spark.read.json(sc.parallelize(data)).na.fill('') 
+df = spark.read.json(sc.parallelize(data)).na.fill('')
 df.show()
 ----
 result = [{"range": "0,5", "val": fa1},
@@ -72,7 +65,7 @@ result = [{"range": "0,5", "val": fa1},
           {"range": ">100", "val": fa6}]
 
 spark = SparkSession.builder.getOrCreate()
-res = spark.read.json(sc.parallelize(result)).na.fill('') 
+res = spark.read.json(sc.parallelize(result)).na.fill('')
 res.show()
 
 resDF = sqlContext.read.json(resJson)

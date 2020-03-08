@@ -2,7 +2,6 @@ import sys
 from pyspark import SparkContext
 
 sc = SparkContext.getOrCreate()
-# file = sc.textFile("task1a.out")
 file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))
@@ -24,8 +23,8 @@ for key in trips.keys():
     dic[key] = val
 
 output = sc.parallelize(list(dic.items()))
-output = output.map(lambda x: x[0] + ',' + str(x[1][0]) + ',' + str(x[1][1]) \
-        + ',' + str(x[1][2]))
+output = output.map(lambda x: x[0] + ',' + str(x[1][0]) + ',' + str(x[1][1])
+                    + ',' + str(x[1][2]))
 
 output.saveAsTextFile("task2d.out")
 
