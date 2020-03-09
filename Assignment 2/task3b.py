@@ -1,7 +1,7 @@
 import sys
 from pyspark import SparkContext
-sc = SparkContext.getOrCreate()
 
+sc = SparkContext.getOrCreate()
 file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))
@@ -23,4 +23,8 @@ spark-submit --conf \
 spark.pyspark.python=/share/apps/python/3.6.5/bin/python \
 task3b.py task1a.out
 hfs -getmerge task3b.out task3b.out
+hfs -rm -R task3b.out
+wc -l task3b.out
+head task3b.out
+tail task3b.out
 '''

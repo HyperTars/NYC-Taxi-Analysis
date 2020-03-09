@@ -1,8 +1,7 @@
 import sys
 from pyspark import SparkContext
-sc = SparkContext.getOrCreate()
 
-# file = sc.textFile("task1a.out")
+sc = SparkContext.getOrCreate()
 file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))
@@ -22,4 +21,7 @@ spark-submit --conf \
 spark.pyspark.python=/share/apps/python/3.6.5/bin/python \
 task3d.py task1a.out
 hfs -getmerge task3d.out task3d.out
+hfs -rm -R task3d.out
+wc -l task3d.out
+head -n 20 task3d.out
 '''

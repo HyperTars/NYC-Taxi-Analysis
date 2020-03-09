@@ -1,7 +1,7 @@
 import sys
 from pyspark import SparkContext
-sc = SparkContext.getOrCreate()
 
+sc = SparkContext.getOrCreate()
 file = sc.textFile(sys.argv[1], 1)
 
 lines = file.map(lambda line: line.split(','))
@@ -17,9 +17,9 @@ empty = coord.filter(lambda x: (x[1][0] == 0 or x[1][0] is None) and
 coord = coord.map(lambda x: (x[0], 1)).reduceByKey(lambda x, y: x + y)
 empty = empty.map(lambda x: (x[0], 1)).reduceByKey(lambda x, y: x + y)
 result = coord.leftOuterJoin(empty) \
-        .map(lambda x: (x[0], '%.2f' %
-             (float(0 if x[1][1] is None else x[1][1]) / x[1][0] * 100))) \
-        .sortBy(lambda x: x[0])
+    .map(lambda x: (x[0], '%.2f' %
+         (float(0 if x[1][1] is None else x[1][1]) / x[1][0] * 100))) \
+    .sortBy(lambda x: x[0])
 output = result.map(lambda x: x[0] + ',' + x[1])
 output.saveAsTextFile("task3c.out")
 
@@ -34,4 +34,7 @@ spark-submit --conf \
 spark.pyspark.python=/share/apps/python/3.6.5/bin/python \
 task3c.py task1a.out
 hfs -getmerge task3c.out task3c.out
+hfs -rm -R task3c.out
+wc -l task3c.out
+head -n 20 task3c.out
 '''

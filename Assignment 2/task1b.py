@@ -1,8 +1,8 @@
 import sys
 from csv import reader
 from pyspark import SparkContext
-sc = SparkContext.getOrCreate()
 
+sc = SparkContext.getOrCreate()
 file_fares = sc.textFile(sys.argv[1], 1)
 file_licenses = sc.textFile(sys.argv[2], 1)
 
@@ -10,7 +10,6 @@ lfares = file_fares.mapPartitions(lambda x: reader(x)) \
         .filter(lambda line: len(line) > 1 and 'medallion' not in line)
 llicenses = file_licenses.mapPartitions(lambda x: reader(x)) \
         .filter(lambda line: len(line) > 1 and 'medallion' not in line)
-
 
 fares = lfares.map(lambda x: (x[0],
                    (x[1], x[2], x[3], x[4], x[5], x[6],

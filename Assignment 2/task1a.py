@@ -1,15 +1,15 @@
 import sys
 from csv import reader
 from pyspark import SparkContext
-sc = SparkContext.getOrCreate()
 
+sc = SparkContext.getOrCreate()
 file_trips = sc.textFile(sys.argv[1], 1)
 file_fares = sc.textFile(sys.argv[2], 1)
 
 ltrips = file_trips.mapPartitions(lambda x: reader(x)). \
-        filter(lambda line: len(line) > 1 and 'medallion' not in line)
+    filter(lambda line: len(line) > 1 and 'medallion' not in line)
 lfares = file_fares.mapPartitions(lambda x: reader(x)). \
-        filter(lambda line: len(line) > 1 and 'medallion' not in line)
+    filter(lambda line: len(line) > 1 and 'medallion' not in line)
 
 fares = lfares.map(lambda x: ((x[0], x[1], x[2], x[3]),
                    (x[4], x[5], x[6], x[7], x[8], x[9], x[10])))
@@ -17,8 +17,7 @@ trips = ltrips.map(lambda x: ((x[0], x[1], x[2], x[5]),
                    (x[3], x[4], x[6], x[7], x[8], x[9], x[10],
                    x[11], x[12], x[13])))
 
-result = trips.join(fares) \
-        .sortBy(lambda x: (x[0][0], x[0][1], x[0][3]))
+result = trips.join(fares).sortBy(lambda x: (x[0][0], x[0][1], x[0][3]))
 
 output = result.map(lambda x: ','.join(x[0]) + ',' +
                     ','.join(x[1][0]) + ',' + ','.join(x[1][1]))

@@ -1,13 +1,8 @@
 import sys
 import pyspark.sql.functions as f
 from pyspark.sql import SparkSession
-from pyspark import SparkContext
 
 spark = SparkSession.builder.appName("task4c-sql").getOrCreate()
-sc = SparkContext.getOrCreate()
-
-# df = spark.read.format('csv').options(header='false', inferschema='false') \
-#     .load('task1b-sql.out').na.fill('')
 
 df = spark.read.format('csv').options(header='false', inferschema='false') \
     .load(sys.argv[1]).na.fill('')
@@ -18,7 +13,8 @@ data = df.select(df._c20.cast('string').alias('name'),
 result = data.groupBy('name').agg(f.sum('fare')) \
     .select('name', f.col('sum(fare)').alias('revenue')) \
     .sort(f.col('revenue').desc()).limit(10) \
-    .write.csv('task4c-sql.out', quoteAll=False, header=False, quote='')
+    .write.csv('task4c-sql.out', quoteAll=False, header=False,
+               quote='', ignoreTrailingWhiteSpace=False)
 
 '''
 module load python/gnu/3.6.5

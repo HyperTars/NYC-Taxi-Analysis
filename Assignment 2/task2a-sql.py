@@ -1,6 +1,5 @@
 import sys
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import format_string
 from pyspark import SparkContext
 
 spark = SparkSession.builder.appName("task2a-sql").getOrCreate()
@@ -25,10 +24,8 @@ result = [{"range": "0,5", "val": fa1},
           {"range": "50,100", "val": fa5},
           {"range": ">100", "val": fa6}]
 
-res = spark.read.json(sc.parallelize(result)).na.fill('')
-res.show()
-
-res.write.csv('task2a-sql.out', quoteAll=False, header=False, quote='')
+res = spark.read.json(sc.parallelize(result)).na.fill('') \
+    .write.csv('task2a-sql.out', quoteAll=False, header=False, quote='')
 
 '''
 module load python/gnu/3.6.5
@@ -41,34 +38,4 @@ task2a-sql.py task1a-sql.out
 hfs -getmerge task2a-sql.out task2a-sql.out
 hfs -rm -R task2a-sql.out
 cat task2a-sql.out
-
-
-----
-data = [
-    {"range": "0,5", "val": fa1},
-    {"range": "5,15", "val": fa2},
-    {"range": "15,30", "val": fa3},
-    {"range": "30,50", "val": fa4},
-    {"range": "50,100", "val": fa5},
-    {"range": ">100", "val": fa6}
-]
-
-spark = SparkSession.builder.getOrCreate()
-df = spark.read.json(sc.parallelize(data)).na.fill('')
-df.show()
-----
-result = [{"range": "0,5", "val": fa1},
-          {"range": "5,15", "val": fa2},
-          {"range": "15,30", "val": fa3},
-          {"range": "30,50", "val": fa4},
-          {"range": "50,100", "val": fa5},
-          {"range": ">100", "val": fa6}]
-
-spark = SparkSession.builder.getOrCreate()
-res = spark.read.json(sc.parallelize(result)).na.fill('')
-res.show()
-
-resDF = sqlContext.read.json(resJson)
-
-ress = spark.createDataFrame(Row(**x) for x in result)
 '''

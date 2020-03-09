@@ -1,13 +1,8 @@
 import sys
 import pyspark.sql.functions as f
 from pyspark.sql import SparkSession
-from pyspark import SparkContext
 
 spark = SparkSession.builder.appName("task3c-sql").getOrCreate()
-sc = SparkContext.getOrCreate()
-
-# df = spark.read.format('csv').options(header='false', inferschema='false') \
-#    .load('task1a-sql.out').na.fill('N')
 
 df = spark.read.format('csv').options(header='false', inferschema='false') \
     .load(sys.argv[1]).na.fill('')
