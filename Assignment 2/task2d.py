@@ -35,5 +35,7 @@ spark.pyspark.python=/share/apps/python/3.6.5/bin/python \
 task2d.py task1a.out
 hfs -getmerge task2d.out task2d.out
 hfs -rm -R task2d.out
-cat task2d.out
+wc -l task2d.out
+head task2d.out
+tail task2d.out
 '''
