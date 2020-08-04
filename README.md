@@ -19,3 +19,6 @@
 - [Assignment 1](Assignment1/Assignment1.pdf): MapReduce
 - [Assignment 2](Assignment2/Assignment2.pdf): PySpark (RDD and PySpark SQL)
 - [Assignment 3](Assignment3/Assignment3.pdf): OpenRefine (fingerprint & ngram)
+
+## Relevant Projects
+- [Impact of COVID-19 on Financial Market](https://github.com/HyperTars/Impact-of-COVID-19-on-Financial-Market/blob/master/README.md)
