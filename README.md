@@ -16,9 +16,14 @@
 - Projects tested in NYU HPC with Hadoop, MapReduce, PySpark, HDFS
 
 ## Topics
-- [Assignment 1](Assignment1/Assignment1.pdf): MapReduce
-- [Assignment 2](Assignment2/Assignment2.pdf): PySpark (RDD and PySpark SQL)
-- [Assignment 3](Assignment3/Assignment3.pdf): OpenRefine (fingerprint & ngram)
+- Assignment 1: MapReduce 
+  - [Instruction1](Assignment1/Assignment1.pdf) 
+- Assignment 2: PySpark (RDD and PySpark SQL) 
+  - [Instruction2](Assignment2/Assignment2.pdf)
+  - [Report2](Assignment2/Report2.pdf)
+- Assignment 3: OpenRefine (fingerprint & ngram) 
+  - [Instruction3](Assignment3/Assignment3.pdf)
+  - [Report3](Assignment3/Report3.pdf)
 
 ## Relevant Projects
 - [Impact of COVID-19 on Financial Market](https://github.com/HyperTars/Impact-of-COVID-19-on-Financial-Market/blob/master/README.md)
